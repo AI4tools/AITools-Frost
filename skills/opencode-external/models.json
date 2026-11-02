@@ -1,0 +1,32 @@
+{
+  "$comment": "外部调用 OpenCode 的模型清单（全部为免费模型）。tier 越小越好。concurrency 为并发能力：limited=可少量并发，none=不支持并发（并发调用可能失败/排队），unknown=未知。variant 可被调用时用 --variant 覆盖。",
+  "default": "opencode/deepseek-v4.1-flash-free",
+  "defaultAgent": "build",
+  "tiers": [
+    {
+      "id": "tier1",
+      "desc": "第一档：deepseek / glm（都可少量并发）",
+      "models": [
+        { "alias": "deepseek", "providerID": "opencode", "modelID": "deepseek-v4.1-flash-free", "id": "opencode/deepseek-v4.1-flash-free", "variant": "high", "concurrency": "limited", "desc": "DeepSeek V4.1 Flash 免费版（通用/写码）；可少量并发" },
+        { "alias": "glm",      "providerID": "opencode", "modelID": "glm-5.3-flash-free",       "id": "opencode/glm-5.3-flash-free",       "variant": "high", "concurrency": "limited", "desc": "GLM-5.3-Flash 免费版；可少量并发" }
+      ]
+    },
+    {
+      "id": "tier2",
+      "desc": "第二档：space bunny / mimo（不支持并发）、nemotron（可少量并发）",
+      "models": [
+        { "alias": "spacebunny", "providerID": "opencode", "modelID": "space-bunny-free",             "id": "opencode/space-bunny-free",             "variant": "high", "concurrency": "none",    "desc": "Space Bunny 免费版（变体最多）；不支持并发" },
+        { "alias": "mimo",       "providerID": "opencode", "modelID": "mimo-v2.6-flash-free",         "id": "opencode/mimo-v2.6-flash-free",         "variant": "",     "concurrency": "none",    "desc": "MiMo-V2.6-Flash 免费版；不支持并发" },
+        { "alias": "nemotron",   "providerID": "opencode", "modelID": "nemotron-3.5-super-vl-free",   "id": "opencode/nemotron-3.5-super-vl-free",   "variant": "high", "concurrency": "limited", "desc": "Nemotron 3.5 Super VL 免费版；可少量并发" }
+      ]
+    },
+    {
+      "id": "tier3",
+      "desc": "第三档（兜底）：step 5 preview（极慢）、longcat（较弱）",
+      "models": [
+        { "alias": "step5",   "providerID": "relay", "modelID": "<your-model>",   "id": "relay/<your-model>",   "variant": "high", "concurrency": "unknown", "desc": "示例：经自建/第三方中转的模型；极慢。请替换成你自己的 providerID/modelID" },
+        { "alias": "longcat", "providerID": "opencode",   "modelID": "longcat-2.5-preview-free", "id": "opencode/longcat-2.5-preview-free",   "variant": "",     "concurrency": "unknown", "desc": "LongCat 2.5 Preview 免费版；能力较弱" }
+      ]
+    }
+  ]
+}
